@@ -18,5 +18,16 @@ function primitiveMultiply(a, b) {
 
 function reliableMultiply(a, b) {
   // Your code here.
-  console.log(reliableMultiply(8, 8))
+    try {
+      return primitiveMultiply(a,b);
+    }
+    catch (x) {
+      if(x instanceof MultiplicatorUnitFailure) {
+        return reliableMultiply(a,b);
+      }
+      else {
+        throw x;
+      }
+    }
 }
+ console.log(reliableMultiply(8, 8)) //64
